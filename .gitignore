@@ -1,0 +1,49 @@
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# Python Bytecode & Build Artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+build/
+dist/
+*.egg-info/
+.Python
+
+# Testing & Linting Caches
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Environment Variables & Secrets
+.env
+.env.*
+!.env.example
+
+# SQLite Databases & Audit Logs
+*.sqlite3
+*.sqlite
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Notebooks & Logs
+.ipynb_checkpoints/
+*.log
+
+# Web & Frontend Caches
+node_modules/
+.streamlit/secrets.toml
+
+# OS & Editor Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
