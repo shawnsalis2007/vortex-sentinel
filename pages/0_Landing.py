@@ -4,11 +4,11 @@ from __future__ import annotations
 
 import streamlit as st
 
-from src.ui_theme import get_db, get_model_bundle, inject_vortex_theme, render_priority_badge
+from src.ui_theme import LOGO_PATH, get_db, get_model_bundle, inject_vortex_theme, render_priority_badge
 
 st.set_page_config(
     page_title="Landing | Vortex Sentinel",
-    page_icon="assets/vortex_sentinel_logo.png",
+    page_icon=str(LOGO_PATH) if LOGO_PATH.exists() else "assets/vortex_sentinel_logo.png",
     layout="wide",
 )
 
@@ -19,13 +19,10 @@ bundle = get_model_bundle()
 stats = db.get_dashboard_stats()
 avg_txt = f"{stats['avg_risk_score']:.1f}" if stats["avg_risk_score"] is not None else "N/A"
 
-from pathlib import Path
-
-LOGO_FILE = Path("assets/vortex_sentinel_logo.png")
-if LOGO_FILE.exists():
+if LOGO_PATH.exists():
     hero_logo_col, hero_card_col = st.columns([0.16, 0.84], vertical_alignment="center")
     with hero_logo_col:
-        st.image(str(LOGO_FILE), width=130)
+        st.image(str(LOGO_PATH), width=130)
 else:
     hero_card_col = st.container()
 
